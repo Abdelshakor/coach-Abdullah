@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Abdallah | Fitness Coaching</title>
+    
+    <!-- Performance Optimizations -->
+    <meta name="description" content="Dr. Abdallah - Online Fitness & Nutrition Coaching. تدريب أونلاين وأنظمة تغذية مخصصة للرجال.">
+    <meta name="theme-color" content="#DC2626">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" as="style">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Dr.Abdallah</div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/201146165846" target="_blank" class="whatsapp-float">
+        <i class="ri-whatsapp-line"></i>
+    </a>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="ri-check-double-line"></i>
+        <span id="toast-message">تم إرسال البيانات بنجاح!</span>
+    </div>
+
+    <!-- Subscription Modal -->
+    <div class="modal-overlay" id="subscribeModal">
+        <div class="modal">
+            <div class="modal-close" onclick="closeModal()">
+                <i class="ri-close-line"></i>
+            </div>
+            <h3>ابدأ رحلتك <span class="text-red">الآن</span></h3>
+            
+            <div class="selected-package">
+                <div class="pkg-icon">
+                    <i class="ri-trophy-line"></i>
+                </div>
+                <div class="pkg-info">
+                    <div class="pkg-label">الباقة المختارة</div>
+                    <div class="pkg-value" id="selectedPackage">Silver - 3000 EGP</div>
+                </div>
+            </div>
+
+            <form id="subscribeForm">
+                <div class="form-group">
+                    <label>الاسم بالكامل</label>
+                    <input type="text" id="userName" placeholder="اكتب اسمك هنا" required>
+                </div>
+                <div class="form-group">
+                    <label>العمر</label>
+                    <input type="number" id="userAge" placeholder="25" min="15" max="70" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" id="userPhone" placeholder="01xxxxxxxxx" required>
+                </div>
+                <div class="form-group">
+                    <label>الهدف</label>
+                    <select id="userGoal" required>
+                        <option value="">اختر هدفك</option>
+                        <option value="تخسيس وحرق دهون">تخسيس وحرق دهون</option>
+                        <option value="زيادة وزن وعضلات">زيادة وزن وعضلات</option>
+                        <option value="بناء عضلات">بناء عضلات</option>
+                        <option value="لياقة عامة">لياقة عامة</option>
+                        <option value="تجهيز لبطولة">تجهيز لبطولة</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">
+                    <i class="ri-whatsapp-line" style="margin-left: 10px; font-size: 22px;"></i>
+                    تواصل عبر واتساب
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">Dr.<span>Abdallah</span></a>
+            <nav class="nav-links">
+                <a href="#about">عن الكوتش</a>
+                <a href="#packages">الباقات</a>
+                <a href="#process">طريقة العمل</a>
+                <a href="#transformations">النتائج</a>
+                <a href="#faq">الأسئلة</a>
+            </nav>
+            <div class="header-right">
+                <a href="https://www.instagram.com/dr.3bodlift/" target="_blank" class="social-icon" style="width: 40px; height: 40px; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-radius: 10px;"><i class="ri-instagram-line"></i></a>
+                <a href="#packages" class="btn" style="padding: 12px 25px; font-size: 14px;">ابدأ الآن</a>
+                <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#about" onclick="closeMobileMenu()">عن الكوتش</a>
+        <a href="#packages" onclick="closeMobileMenu()">الباقات</a>
+        <a href="#process" onclick="closeMobileMenu()">طريقة العمل</a>
+        <a href="#transformations" onclick="closeMobileMenu()">النتائج</a>
+        <a href="#faq" onclick="closeMobileMenu()">الأسئلة</a>
+        <a href="#packages" class="btn" onclick="closeMobileMenu()">ابدأ الآن</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-subtitle">Online Fitness & Nutrition Coaching</h2>
+            <h1 class="hero-title">Coaching مبني على العلم<br><span class="text-red">+</span> متابعة حقيقية</h1>
+            <p class="hero-desc">
+                غير جسمك وأدائك في الجيم بخطة تدريب وتغذية مخصصة لهدفك
+            </p>
+            <div class="hero-tags">
+                <span><i class="ri-check-double-line"></i> خطة مخصصة</span>
+                <span><i class="ri-check-double-line"></i> متابعة يومية</span>
+                <span><i class="ri-check-double-line"></i> نتائج مضمونة</span>
+            </div>
+            <a href="#packages" class="btn hero-btn">ابدأ رحلتك الآن <i class="ri-arrow-left-line" style="margin-right: 10px;"></i></a>
+        </div>
+        <div class="scroll-indicator" onclick="document.querySelector('.features').scrollIntoView({behavior: 'smooth'})">
+            <i class="ri-arrow-down-double-line"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <i class="ri-dumbbell-line feature-icon"></i>
+                    <h3 class="feature-title">Gym Workout</h3>
+                    <p class="feature-text">برامج تدريب مقاومة مصممة خصيصاً لمستواك وأهدافك لزيادة الكتلة العضلية والقوة.</p>
+                </div>
+
+                <div class="feature-card animate-on-scroll">
+                    <i class="ri-restaurant-line feature-icon"></i>
+                    <h3 class="feature-title">Nutrition Plan</h3>
+                    <p class="feature-text">أنظمة غذائية مرنة تناسب حياتك وتفضيلاتك بدون حرمان للوصول لهدفك.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <i class="ri-user-voice-line feature-icon"></i>
+                    <h3 class="feature-title">Daily Follow-up</h3>
+                    <p class="feature-text">تواصل مباشر ومستمر لتعديل الخطة والإجابة على استفساراتك وضمان التزامك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+
+            <div class="about-content">
+                <h2 class="section-title animate-on-scroll">ليه تتدرب مع <span class="text-red">Dr. Abdallah؟</span></h2>
+                <p class="about-subtitle animate-on-scroll">خبرة طبية + علم التدريب</p>
+                
+                <div class="about-list">
+                    <div class="about-item animate-on-scroll">
+                        <div class="about-item-icon">
+                            <i class="ri-medal-line"></i>
+                        </div>
+                        <div class="about-item-text">
+                            <h4>أساس علمي وطبي</h4>
+                            <p>كل تمرين وكل سعرة حرارية محسوبة بناءً على أسس علمية وطبية دقيقة لضمان سلامتك ونتائجك.</p>
+                        </div>
+                    </div>
+                    <div class="about-item animate-on-scroll">
+                        <div class="about-item-icon">
+                            <i class="ri-focus-3-line"></i>
+                        </div>
+                        <div class="about-item-text">
+                            <h4>تركيز على التكنيك</h4>
+                            <p>تحليل فيديوهات تمرينك وتصحيح الأداء لتجنب الإصابات والاستفادة القصوى من كل تكرار.</p>
+                        </div>
+                    </div>
+                    <div class="about-item animate-on-scroll">
+                        <div class="about-item-icon">
+                            <i class="ri-heart-pulse-line"></i>
+                        </div>
+                        <div class="about-item-text">
+                            <h4>أسلوب حياة مستدام</h4>
+                            <p>مش دايت قاسي ولا تمرين يعجزك، بنبني عادات صحية تكمل معاك طول العمر.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#transformations" class="btn btn-outline animate-on-scroll" style="margin-top: 50px;">شوف قصص النجاح</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformations -->
+    <section class="transformations" id="transformations">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 class="section-title animate-on-scroll">قصص <span class="text-red">نجاح حقيقية</span></h2>
+                <p class="animate-on-scroll" style="color: #999; margin-top: 20px;">نتائج أبطال التزموا بالخطة وغيروا حياتهم</p>
+            </div>
+            
+            <div class="trans-grid">
+                <!-- Transformation 1 -->
+                <a href="https://www.instagram.com/dr.3bodlift/p/DShyz9lCEpN/" target="_blank" class="trans-item animate-on-scroll">
+                    <img src="images/transformation1.jpg" alt="Transformation 1" loading="lazy">
+                    <div class="trans-overlay">
+                        <i class="ri-instagram-line trans-icon"></i>
+                    </div>
+                </a>
+                <!-- Transformation 2 -->
+                <a href="https://www.instagram.com/dr.3bodlift/p/DShyK9piHDe/" target="_blank" class="trans-item animate-on-scroll">
+                    <img src="images/transformation2.jpg" alt="Transformation 2" loading="lazy">
+                    <div class="trans-overlay">
+                        <i class="ri-instagram-line trans-icon"></i>
+                    </div>
+                </a>
+                <!-- Transformation 3 (3 صور) -->
+                <a href="https://www.instagram.com/dr.3bodlift/p/DSh34GQCKQn/" target="_blank" class="trans-item animate-on-scroll trans-slideshow" data-slides="3">
+                    <img src="images/transformation3-1.jpg" alt="Transformation 3" loading="lazy" class="trans-slide active">
+                    <img src="images/transformation3-2.jpg" alt="Transformation 3" loading="lazy" class="trans-slide">
+                    <img src="images/transformation3-3.jpg" alt="Transformation 3" loading="lazy" class="trans-slide">
+                    <div class="slide-indicators">
+                        <span class="indicator active"></span>
+                        <span class="indicator"></span>
+                        <span class="indicator"></span>
+                    </div>
+                    <div class="trans-overlay">
+                        <i class="ri-instagram-line trans-icon"></i>
+                    </div>
+                </a>
+                <!-- Transformation 4 -->
+                <a href="https://www.instagram.com/dr.3bodlift/p/DSjjXG3iAHL/" target="_blank" class="trans-item animate-on-scroll">
+                    <img src="images/transformation4.jpg" alt="Transformation 4" loading="lazy">
+                    <div class="trans-overlay">
+                        <i class="ri-instagram-line trans-icon"></i>
+                    </div>
+                </a>
+                <!-- Transformation 5 -->
+                <a href="https://www.instagram.com/dr.3bodlift/p/DSjixYiCLhY/" target="_blank" class="trans-item animate-on-scroll">
+                    <img src="images/transformation5.jpg" alt="Transformation 5" loading="lazy">
+                    <div class="trans-overlay">
+                        <i class="ri-instagram-line trans-icon"></i>
+                    </div>
+                </a>
+                <!-- Transformation 6 (صورتين) -->
+                <a href="https://www.instagram.com/dr.3bodlift/p/DSjjGTaCPtE/" target="_blank" class="trans-item animate-on-scroll trans-slideshow" data-slides="2">
+                    <img src="images/transformation6-1.jpg" alt="Transformation 6" loading="lazy" class="trans-slide active">
+                    <img src="images/transformation6-2.jpg" alt="Transformation 6" loading="lazy" class="trans-slide">
+                    <div class="slide-indicators">
+                        <span class="indicator active"></span>
+                        <span class="indicator"></span>
+                    </div>
+                    <div class="trans-overlay">
+                        <i class="ri-instagram-line trans-icon"></i>
+                    </div>
+                </a>
+                <!-- Transformation 7 -->
+                <a href="https://www.instagram.com/dr.3bodlift/p/DSlFAr-iPsp/" target="_blank" class="trans-item animate-on-scroll">
+                    <img src="images/transformation7.jpg" alt="Transformation 7" loading="lazy">
+                    <div class="trans-overlay">
+                        <i class="ri-instagram-line trans-icon"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://www.instagram.com/dr.3bodlift/" target="_blank" class="btn btn-outline animate-on-scroll" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border: none;">المزيد على انستجرام <i class="ri-instagram-line" style="margin-right: 8px;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="process-overlay"></div>
+        <div class="process-container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 class="section-title animate-on-scroll">رحلة <span class="text-red">التغيير</span></h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-step animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">التسجيل والتقييم</h3>
+                        <p class="step-desc">بتملا استمارة مفصلة عن بياناتك، تاريخك الرياضي، إصاباتك، وأهدافك، وبنعمل مكالمة لتحديد خطة العمل.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">تصميم البرنامج</h3>
+                        <p class="step-desc">بجهزلك خطة تدريب وتغذية مفصلة بالكامل ومناسبة لروتين يومك والأدوات المتاحة ليك.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">بداية التنفيذ</h3>
+                        <p class="step-desc">بتستلم الخطة على التطبيق الخاص، مع فيديوهات شرح لكل تمرين وبتبدأ رحلتك.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step animate-on-scroll">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">المتابعة والتعديل</h3>
+                        <p class="step-desc">متابعة أسبوعية للوزن، الصور، والمقاسات، وتعديل الخطة بناءً على استجابة جسمك.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-step animate-on-scroll">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">الوصول للهدف</h3>
+                        <p class="step-desc">بنحتفل بالوصول لهدفك وبنحط خطة للحفاظ على النتيجة أو الانتقال لمستوى أعلى.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 80px;">
+                <h2 class="section-title animate-on-scroll">باقات <span class="text-red">التدريب</span></h2>
+                <p class="animate-on-scroll" style="color: #999; margin-top: 20px;">استثمر في صحتك مع الباقة الأنسب ليك</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Bronze -->
+                <div class="package-card bronze animate-on-scroll">
+                    <h3 class="pkg-name">Bronze</h3>
+                    <div class="pkg-price">1500 <span>EGP / 3 شهور</span></div>
+                    <ul class="pkg-features">
+                        <li><i class="ri-check-line"></i> برنامج مُخصص لهدفك</li>
+                        <li><i class="ri-check-line"></i> خطة تغذية مخصصة</li>
+                        <li><i class="ri-check-line"></i> خطة تمارين مخصصة</li>
+                        <li><i class="ri-check-line"></i> خطة كارديو</li>
+                        <li><i class="ri-check-line"></i> متابعة كل 7 أيام</li>
+                        <li><i class="ri-check-line"></i> تحديثات كل 21 يوم حسب التقدم</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="openModal('Bronze', '1500 EGP / 3 شهور')">اشترك الآن</button>
+                </div>
+
+                <!-- Silver (Popular) -->
+                <div class="package-card popular silver animate-on-scroll">
+                    <div class="popular-badge">الأكثر طلباً</div>
+                    <h3 class="pkg-name">Silver</h3>
+                    <div class="pkg-price">3000 <span>EGP / 3 شهور</span></div>
+                    <ul class="pkg-features">
+                        <li><i class="ri-check-line"></i> برنامج مُخصص لهدفك</li>
+                        <li><i class="ri-check-line"></i> خطة تغذية مخصصة</li>
+                        <li><i class="ri-check-line"></i> خطة تمارين مخصصة</li>
+                        <li><i class="ri-check-line"></i> خطة كارديو</li>
+                        <li><i class="ri-check-line"></i> متابعة كل 3 أيام</li>
+                        <li><i class="ri-check-line"></i> تحديثات كل 15 يوم حسب التقدم</li>
+                    </ul>
+                    <button class="btn" onclick="openModal('Silver', '3000 EGP / 3 شهور')">اشترك الآن</button>
+                </div>
+
+                <!-- Gold -->
+                <div class="package-card gold animate-on-scroll">
+                    <h3 class="pkg-name">Gold</h3>
+                    <div class="pkg-price">4500 <span>EGP / 3 شهور</span></div>
+                    <ul class="pkg-features">
+                        <li><i class="ri-check-line"></i> برنامج مُخصص لهدفك</li>
+                        <li><i class="ri-check-line"></i> خطة تغذية مخصصة</li>
+                        <li><i class="ri-check-line"></i> خطة تمارين مخصصة</li>
+                        <li><i class="ri-check-line"></i> خطة كارديو</li>
+                        <li><i class="ri-check-line"></i> متابعة يومية</li>
+                        <li><i class="ri-check-line"></i> تحديثات كل 7 أيام حسب التقدم</li>
+                        <li><i class="ri-check-line"></i> مكالمة صوتية أسبوعية</li>
+                        <li><i class="ri-check-line"></i> متابعة مع دكتور علاج طبيعي لتفادي الإصابات وعلاجها</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="openModal('Gold', '4500 EGP / 3 شهور')">اشترك الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container faq-container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 class="section-title animate-on-scroll">أسئلة <span class="text-red">مكررة</span></h2>
+            </div>
+
+            <div class="faq-item active animate-on-scroll">
+                <div class="faq-question">
+                    هل البرنامج مناسب للمبتدئين؟
+                    <i class="ri-arrow-down-s-line faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    أكيد! البرنامج بيتم تصميمه بالكامل بناءً على مستواك الحالي، حتى لو عمرك ما دخلت جيم قبل كده. هنبدأ معاك من الأساسيات ونطلع واحدة واحدة.
+                </div>
+            </div>
+
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    محتاج أدوات معينة للتمرين؟
+                    <i class="ri-arrow-down-s-line faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    مش شرط. لو بتتدرب في الجيم هنستخدم الأجهزة المتاحة، ولو في البيت بصمم لك برنامج بالأدوات اللي عندك أو حتى بوزن الجسم.
+                </div>
+            </div>
+
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    إزاي بيتم التواصل والمتابعة؟
+                    <i class="ri-arrow-down-s-line faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    التواصل بيكون من خلال تطبيق خاص أو الواتساب (حسب الباقة). بتبعت تقارير أسبوعية وفيديوهات تمرين وأنا براجعها وأبعتلك الملاحظات والتعديلات.
+                </div>
+            </div>
+
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    هل النظام الغذائي فيه حرمان؟
+                    <i class="ri-arrow-down-s-line faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    لا تماماً. أسلوبي بيعتمد على المرونة (Flexible Dieting). هتاكل الأكل اللي بتحبه بس بكميات محسوبة تناسب هدفك، عشان تقدر تستمر عليه كأسلوب حياة.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="animate-on-scroll">جاهز للتغيير؟</h2>
+            <p class="animate-on-scroll">مستني إيه؟ كل يوم بيعدي هو فرصة ضايعة. ابدأ النهاردة واستثمر في نفسك وصحتك.</p>
+            <a href="#packages" class="btn animate-on-scroll" style="padding: 20px 50px; font-size: 20px;">اشترك وغير حياتك</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">Dr.<span>Abdallah</span></div>
+                    <p class="footer-desc">
+                        نساعدك توصل لأفضل نسخة من نفسك من خلال العلم والتدريب الذكي. هدفنا صحتك وقوتك وثقتك بنفسك.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/dr.3bodlift/" target="_blank" class="social-icon"><i class="ri-instagram-line"></i></a>
+                        <a href="https://wa.me/201146165846" target="_blank" class="social-icon"><i class="ri-whatsapp-line"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">عن الكوتش</a></li>
+                        <li><a href="#packages">باقات التدريب</a></li>
+                        <li><a href="#transformations">قصص النجاح</a></li>
+                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>الخدمات</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">تدريب أونلاين</a></li>
+                        <li><a href="#">أنظمة تغذية</a></li>
+                        <li><a href="#">تأهيل إصابات</a></li>
+                        <li><a href="#">تجهيز بطولات</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2024 Dr. Abdallah Fitness. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
